@@ -1,0 +1,55 @@
+form {
+  background-color: #e6e6e6; /* change background color */
+  padding: 0.5rem; /* decrease padding */
+  max-width: 500px; /* set maximum width */
+  margin: 0 auto;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type=text], input[type=email], input[type=tel], select {
+  border-radius: 3px; /* decrease border radius */
+  border: 1px solid #ccc; /* change border color */
+  padding: 0.3rem; /* decrease padding */
+  margin-top: 0.3rem; /* decrease margin top */
+}
+
+select {
+  height: calc(1.5em + 1.25rem + 2px);
+}
+
+input[type=radio] {
+  margin-right: 0.5rem;
+}
+
+.form-group {
+  margin-bottom: 1rem; /* decrease margin bottom */
+  padding: 0.3rem; /* decrease padding */
+  background-color: #fff;
+  border-radius: 3px; /* decrease border radius */
+}
+
+button[type=submit], button[type=button] {
+  padding: 0.3rem 0.7rem; /* decrease padding */
+  border-radius: 3px; /* decrease border radius */
+  margin-top: 0.5rem; /* decrease margin top */
+}
+
+button[type=submit] {
+  background-color: #0066cc; /* change background color */
+  border-color: #0066cc; /* change border color */
+  color: #fff;
+}
+
+button[type=submit]:hover, button[type=button]:hover {
+  cursor: pointer;
+}
+
+button[type=button] {
+  background-color: #fff;
+  border-color: #999; /* change border color */
+  color: #999; /* change text color */
+  margin-left: 0.5rem; /* decrease margin left */
+}
