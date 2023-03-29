@@ -1,6 +1,7 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { MatTableModule } from '@angular/material/table'  
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +12,7 @@ import { ViewIssuesComponent } from './view-issues/view-issues.component';
 import { ViewProjectsComponent } from './view-projects/view-projects.component';
 import { ViewUsersComponent } from './view-users/view-users.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HomeComponent } from './home/home.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,14 +21,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CreateProjectComponent,
     ViewIssuesComponent,
     ViewProjectsComponent,
-    ViewUsersComponent
+    ViewUsersComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
