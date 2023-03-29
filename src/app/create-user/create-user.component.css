@@ -1,11 +1,13 @@
 form {
   margin: 0 auto;
-  width: 50%;
-  padding: 20px;
+  width: 40%;
+  height: 50%;
+  padding: 15px;
   border: 1px solid #496cb6;
   border-radius: 10px;
   box-shadow: 2px 2px 5px #ccc;
   background-color: rgba(153, 189, 221, 0.8);
+  margin-top: 100px;
 }
 .required-star{color: #f44336;}
 

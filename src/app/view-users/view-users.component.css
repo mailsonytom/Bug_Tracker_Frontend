@@ -2,7 +2,9 @@ table {
     border-collapse: collapse;
     width: 100%;
     margin-bottom: 20px;
+    margin-top: 100px;
   }
+  
   
   th,
   td {
@@ -41,4 +43,8 @@ table {
   button:hover {
     background-color: #576ebf;
   }
+  h2{
+    text-align: center;
+    margin: 80px;
+}
   

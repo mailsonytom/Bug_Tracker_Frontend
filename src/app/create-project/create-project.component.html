@@ -6,12 +6,13 @@
     <span class="error-msg">ID is required.</span>
   </div>
 
-  <label for="project-name">Display Project<span class="required-star">*</span>:</label><br>
+  <label for="project-name">Project Title<span class="required-star">*</span>:</label><br>
   <input type="text" id="project-name" formControlName="name"><br>
   <div *ngIf="projectForm.controls['name'].invalid && projectForm.controls['name'].touched">
     <span class="error-msg">Display Project is required.</span>
   </div>
 
+  
   <label for="primary-owner">Primary owner<span class="required-star">*</span>:</label><br>
   <input type="text" id="primary-owner" formControlName="primaryOwner"><br>
   <div *ngIf="projectForm.controls['primaryOwner'].invalid && projectForm.controls['primaryOwner'].touched">

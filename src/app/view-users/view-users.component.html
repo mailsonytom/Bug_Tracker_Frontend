@@ -1,30 +1,29 @@
 <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Phone</th>
-        <th>Gender</th>
-        <th>Role</th>
-        <th>Is Active</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Add a row for each user using an *ngFor loop -->
-      <tr *ngFor="let user of users">
-        <td>{{ user.displayName }}</td>
-        <td>{{ user.email }}</td>
-        <td>{{ user.phone }}</td>
-        <td>{{ user.gender }}</td>
-        <td>{{ user.role }}</td>
-        <td>{{ user.isActive ? 'Yes' : 'No' }}</td>
-        <td>
-          <!-- Add edit and delete buttons with click handlers -->
-          <button (click)="editUser(user)">Edit</button>
-          <button (click)="deleteUser(user)">Delete</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Gender</th>
+      <th>Role</th>
+      <th>Is Active</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Add a row for each user using an *ngFor loop -->
+    <tr *ngFor="let user of users">
+      <td>{{ user.displayName }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.phone }}</td>
+      <td>{{ user.gender }}</td>
+      <td>{{ user.role }}</td>
+      <td>{{ user.isActive ? 'Yes' : 'No' }}</td>
+      <td>
+        <!-- Add edit and delete buttons with click handlers -->
+        <button (click)="editUser(user)">Edit</button>
+        <button (click)="deleteUser(user)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
