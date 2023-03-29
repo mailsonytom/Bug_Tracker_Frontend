@@ -1,1 +1,74 @@
-<p>view-issues works!</p>
+<h2>ALL ISSUES</h2>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef>No.</th>
+      <td mat-cell *matCellDef="let element">{{element.position}}</td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Title</th>
+      <td mat-cell *matCellDef="let element">{{element.name}}</td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="desc">
+        <th mat-header-cell *matHeaderCellDef>Description</th>
+        <td mat-cell *matCellDef="let element">{{element.desc}}</td>
+      </ng-container>
+    
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="assignto">
+        <th mat-header-cell *matHeaderCellDef>Assigned to</th>
+        <td mat-cell *matCellDef="let element">{{element.assignto}}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="priority">
+          <th mat-header-cell *matHeaderCellDef>Priority</th>
+          <td mat-cell *matCellDef="let element">{{element.priority}}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="severity">
+          <th mat-header-cell *matHeaderCellDef>Severity</th>
+          <td mat-cell *matCellDef="let element">{{element.severity}}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="issuetype">
+          <th mat-header-cell *matHeaderCellDef>Issue Type</th>
+          <td mat-cell *matCellDef="let element">{{element.issuetype}}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="tags">
+          <th mat-header-cell *matHeaderCellDef>Tags</th>
+          <td mat-cell *matCellDef="let element">{{element.tags}}</td>
+        </ng-container>
+    
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr
+        mat-row
+       
+        *matRowDef="let row; columns: displayedColumns;"
+    ></tr>
+  </table>
+
+  <!-- (click)="clickedRows.add(row)"
+  [class.demo-row-is-clicked]="clickedRows.has(row)" -->
+
+  <!-- <div>
+    <h3>
+      Click Log
+    </h3>
+  </div>
+  
+  <div *ngIf="!clickedRows.size">
+    Clicked rows will be logged here
+  </div>
+  
+  <ul>
+    <li *ngFor="let clickedRow of clickedRows">
+      Clicked on {{clickedRow.name}}
+    </li>
+  </ul> -->
+  
