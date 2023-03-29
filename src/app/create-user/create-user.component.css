@@ -1,20 +1,70 @@
 form {
-  background-color: #e6e6e6; /* change background color */
-  padding: 0.5rem; /* decrease padding */
-  max-width: 500px; /* set maximum width */
   margin: 0 auto;
+  width: 50%;
+  padding: 20px;
+  border: 1px solid #496cb6;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px #ccc;
+  background-color: rgba(153, 189, 221, 0.8);
 }
+.required-star{color: #f44336;}
 
 label {
+  display: block;
+  margin-bottom: 10px;
   font-weight: bold;
 }
 
-input[type=text], input[type=email], input[type=tel], select {
-  border-radius: 3px; /* decrease border radius */
-  border: 1px solid #ccc; /* change border color */
-  padding: 0.3rem; /* decrease padding */
-  margin-top: 0.3rem; /* decrease margin top */
+input[type="text"],
+input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
 }
+
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+input[type="radio"] {
+  margin-right: 10px;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+button[type="button"] {
+  background-color: #f44336;
+}
+
+button[type="submit"]:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+button[type="submit"]:not(:disabled):hover {
+  background-color: #3e8e41;
+}
+
+button[type="button"]:hover {
+  background-color: #f44336;
+}
+
 
 select {
   height: calc(1.5em + 1.25rem + 2px);

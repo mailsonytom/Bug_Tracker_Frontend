@@ -1,1 +1,47 @@
-<h1>Create a User</h1>
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()" novalidate>
+  <h1 class="form-title">Create User</h1>
+  
+
+  <label for="display-name">Name<span class="required-star">*</span>:</label><br>
+  <input type="text" id="display-name" formControlName="displayName"><br>
+  <div *ngIf="userForm.controls['displayName'].invalid && userForm.controls['displayName'].touched">
+    <span class="error-msg">Name is required.</span>
+  </div>
+
+  <label for="email">Email<span class="required-star">*</span>:</label><br>
+<input type="text" id="email" formControlName="email"><br>
+  <div *ngIf="userForm.controls['email'].invalid && userForm.controls['email'].touched">
+    <span class="error-msg" *ngIf="userForm.controls['email'].errors?.['required']">Email is required.</span>
+    <span class="error-msg" *ngIf="userForm.controls['email'].errors?.['maxlength']">Email should be less than 40 characters.</span>
+    <span class="error-msg" *ngIf="userForm.controls['email'].errors?.['pattern']">Email should be in the format: example@domain.com</span>
+  </div>
+  
+  <label for="phone">Phone<span class="required-star">*</span>:</label><br>
+  <input type="text" id="phone" formControlName="phone"><br>
+  <div *ngIf="userForm.controls['phone'].invalid && userForm.controls['phone'].touched">
+    <span class="error-msg">Phone is required and should be 10 digits.</span>
+  </div>
+
+  <label for="gender">Gender<span class="required-star">*</span>:</label><br>
+  <input type="radio" id="gender-male" formControlName="gender" value="male">Male
+  <input type="radio" id="gender-female" formControlName="gender" value="female">Female
+  <input type="radio" id="gender-others" formControlName="gender" value="others">Others<br>
+  <div *ngIf="userForm.controls['gender'].invalid && userForm.controls['gender'].touched">
+    <span class="error-msg">Gender is required.</span>
+  </div>
+  
+
+  <label for="role">Role<span class="required-star">*</span>:</label><br>
+  <select id="role" formControlName="role">
+    <option value="Admin">Admin</option>
+    <option value="QA">QA</option>
+    <option value="Dev">Dev</option>
+  </select><br>
+
+  <label for="is-active">Is Active:</label><br>
+  <input type="radio" id="is-active-yes" formControlName="isActive" value="true" checked>Yes
+  <input type="radio" id="is-active-no" formControlName="isActive" value="false">No<br>
+
+  <button type="submit">Save and Close</button>
+  <button type="button" (click)="onCancel()">Cancel</button>
+</form>

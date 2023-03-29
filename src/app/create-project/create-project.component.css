@@ -1,0 +1,90 @@
+.form-title {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+  
+  label {
+    font-size: 18px;
+  }
+  
+  input[type=text], textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+  }
+  
+  input[type=radio] {
+    margin-right: 10px;
+  }
+  
+  button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  .required-star {
+    color: red;
+  }
+  
+  .error-msg {
+    color: red;
+    font-size: 14px;
+    margin-left: 5px;
+  }
+  form {
+    max-width: 500px;
+    background-color: #f1f1f1;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 0% auto;
+    background-color: rgba(153, 189, 221, 0.8);
+  
+    border-radius: 10px;
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  input[type="text"],
+  textarea {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    resize: none;
+  }
+  
+  input[type="radio"] {
+    margin-right: 10px;
+  }
+  
+  button[type="submit"],
+  button[type="button"] {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover,
+  button[type="button"]:hover {
+    background-color: #0056b3;
+  }
+    

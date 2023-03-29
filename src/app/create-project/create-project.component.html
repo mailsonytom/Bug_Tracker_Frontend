@@ -1,1 +1,36 @@
-<p>create-project works!</p>
+<form [formGroup]="projectForm" (ngSubmit)="onSubmit()" novalidate>
+    <h1 class="form-title">Create Project</h1>
+  <label for="project-id">ID<span class="required-star">*</span>:</label><br>
+  <input type="text" id="project-id" formControlName="id"><br>
+  <div *ngIf="projectForm.controls['id'].invalid && projectForm.controls['id'].touched">
+    <span class="error-msg">ID is required.</span>
+  </div>
+
+  <label for="project-name">Display Project<span class="required-star">*</span>:</label><br>
+  <input type="text" id="project-name" formControlName="name"><br>
+  <div *ngIf="projectForm.controls['name'].invalid && projectForm.controls['name'].touched">
+    <span class="error-msg">Display Project is required.</span>
+  </div>
+
+  <label for="primary-owner">Primary owner<span class="required-star">*</span>:</label><br>
+  <input type="text" id="primary-owner" formControlName="primaryOwner"><br>
+  <div *ngIf="projectForm.controls['primaryOwner'].invalid && projectForm.controls['primaryOwner'].touched">
+    <span class="error-msg">Primary owner is required.</span>
+  </div>
+
+  <label for="secondary-owner">Secondary owner<span class="required-star">*</span>:</label><br>
+  <input type="text" id="secondary-owner" formControlName="secondaryOwner"><br>
+  <div *ngIf="projectForm.controls['secondaryOwner'].invalid && projectForm.controls['secondaryOwner'].touched">
+    <span class="error-msg">Secondary owner is required.</span>
+  </div>
+
+  <label for="is-active">Is Active:</label><br>
+  <input type="radio" id="is-active-yes" formControlName="isActive" value="true" checked>Yes
+  <input type="radio" id="is-active-no" formControlName="isActive" value="false">No<br>
+
+  <label for="project-description">Description:</label><br>
+  <textarea id="project-description" formControlName="description" rows="5"></textarea><br><br>
+
+  <button type="submit">Save and Close</button>
+  <button type="button" (click)="onCancel()">Cancel</button>
+</form>

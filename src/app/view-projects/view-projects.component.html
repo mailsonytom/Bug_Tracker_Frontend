@@ -1,1 +1,26 @@
-<p>view-projects works!</p>
+<table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Primary Owner</th>
+        <th>Secondary Owner</th>
+        <th>Is Active</th>
+        <th>Description</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let project of projects">
+        <td>{{ project.id }}</td>
+        <td>{{ project.name }}</td>
+        <td>{{ project.primaryOwner }}</td>
+        <td>{{ project.secondaryOwner }}</td>
+        <td>{{ project.isActive ? 'Yes' : 'No' }}</td>
+        <td>{{ project.description }}</td>
+        <td><button (click)="editProject(project)">Edit</button>
+            <button (click)="deleteProject(project)">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+  
