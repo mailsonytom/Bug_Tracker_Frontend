@@ -6,9 +6,12 @@ import { CreateProjectComponent } from './create-project/create-project.componen
 import { ViewIssuesComponent } from './view-issues/view-issues.component';
 import { ViewProjectsComponent } from './view-projects/view-projects.component';
 import { ViewUsersComponent } from './view-users/view-users.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/users', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  // { path: '', redirectTo: '/users', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
   { path: 'users', component: ViewUsersComponent },
   { path: 'issues', component: ViewIssuesComponent },
   { path: 'projects', component: ViewProjectsComponent },

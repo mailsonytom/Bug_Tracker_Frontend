@@ -1,0 +1,27 @@
+h2{
+    text-align: center;
+}
+
+.mainDiv{
+    text-align: center;
+}
+
+input{
+    width: 400px;
+    height: 30px;
+    margin-top: 10px;
+}
+
+select{
+    width: 410px;
+    height: 35px;
+    margin-top: 10px;
+}
+
+.sbtBtn{
+    width: 410px;
+    height: 30px;
+    margin-top: 10px;
+    background-color: blueviolet;
+    color: white;
+}
