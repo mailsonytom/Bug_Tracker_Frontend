@@ -1,14 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-view-projects',
   templateUrl: './view-projects.component.html',
   styleUrls: ['./view-projects.component.css']
 })
-export class ViewProjectsComponent {
+export class ViewProjectsComponent implements OnInit {
 
- projects = [
+  projects = [
     {
       id: 'P01',
       name: 'Project 1',
@@ -35,4 +35,19 @@ export class ViewProjectsComponent {
   deleteProject(project: any) {
     console.log('Delete project:', project);
   }
+
+  // allProjects: any;
+
+  // constructor(private http: HttpClient) { }
+
+  ngOnInit(): void {
+    //   this.getProjects()
+  }
+
+  // public getProjects() {
+  //   this.http.get('http://localhost:4000/issues').subscribe((data) => {
+  //     console.log("All projects", data)
+  //     this.allProjects = data;
+  //   });
+  // }
 }
