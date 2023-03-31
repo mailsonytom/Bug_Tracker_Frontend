@@ -1,30 +1,25 @@
-import { Component } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Time } from '@angular/common';
 @Component({
   selector: 'app-view-users',
   templateUrl: './view-users.component.html',
   styleUrls: ['./view-users.component.css']
 })
-export class ViewUsersComponent {
+export class ViewUsersComponent implements OnInit {
   // Define the users array property
-  users = [
-    {
-      displayName: 'John Doe',
-      email: 'johndoe@example.com',
-      phone: '1234567890',
-      gender: 'male',
-      role: 'Admin',
-      isActive: true
-    },
-    {
-      displayName: 'Jane Smith',
-      email: 'janesmith@example.com',
-      phone: '9876543210',
-      gender: 'female',
-      role: 'QA',
-      isActive: false
-    }
-  ];
+  allUsers: any;
+  constructor(private http: HttpClient) { }
+
+  ngOnInit(): void {
+    this.getUsers()
+  }
+
+  public getUsers() {
+    this.http.get('http://localhost:4000/user').subscribe((response: any) => {
+      this.allUsers = response.users;
+    });
+  }
 
   // Add edit and delete functions
   editUser(user: any) {
@@ -34,6 +29,5 @@ export class ViewUsersComponent {
   deleteUser(user: any) {
     console.log('Delete user:', user);
   }
-
 
 }
