@@ -7,29 +7,57 @@
         <input type="text" placeholder="Enter issue title" /><br />
         <input type="text" placeholder="Description" /><br />
         <input type="text" placeholder="Tags / Labels" /><br />
-        <select name="dept" id="dept">
-          <option value="">Select department</option>
-          <option value="Testing">Testing</option></select
-        ><br />
         <select name="issuetype" id="issuetype">
           <option value="">Select issuetype</option>
-          <option value="Error">Error</option></select
-        ><br />
-        <select name="priority" id="priority">
-          <option value="">Select priority</option>
-          <option value="1">1</option></select
-        ><br />
-        <select name="assignto" id="assignto">
-          <option value="">Select assignto</option>
-          <option value="Sony">Sony</option></select
+          <option
+            *ngFor="let issuetype of allIssueTypes"
+            value="{{ issuetype.issueid }}"
+          >
+            {{ issuetype.issue }}
+          </option></select
         ><br />
         <select name="statustype" id="statustype">
           <option value="">Select statustype</option>
-          <option value="open">open</option></select
+          <option
+            *ngFor="let statustype of allStatusTypes"
+            value="{{ statustype.sid }}"
+          >
+            {{ statustype.status }}
+          </option></select
+        ><br />
+        <select name="priority" id="priority">
+          <option value="">Select priority</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option></select
         ><br />
         <select name="severity" id="severity">
           <option value="">Select severity</option>
-          <option value="HIGH">HIGH</option></select
+          <option
+            *ngFor="let severitytype of allSeverityTypes"
+            value="{{ severitytype.severityid }}"
+          >
+            {{ severitytype.severity }}
+          </option></select
+        ><br />
+        <select name="dept" id="dept" (change)="onSelectDept($event)">
+          <option value="">Select department</option>
+          <option
+            *ngFor="let department of userDepartments"
+            value="{{ department }}"
+          >
+            {{ department }}
+          </option></select
+        ><br />
+        <select name="assignto" id="assignto">
+          <option value="">Select assignto</option>
+          <option
+            *ngFor="let user of UserUnderDeptArray"
+            value="{{ user.empid }}"
+          >
+            {{ user.name }}
+          </option></select
         ><br />
         <button class="sbtBtn sbtBtn-primary" type="submit">SUBMIT</button>
       </div>
