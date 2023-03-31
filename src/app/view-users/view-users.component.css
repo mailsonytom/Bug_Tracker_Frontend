@@ -1,8 +1,16 @@
+.container{
+  margin-top: 7%;
+}
+
+h2{
+    text-align: center;
+    margin: 20px;
+}
+
 table {
     border-collapse: collapse;
     width: 100%;
     margin-bottom: 20px;
-    margin-top: 100px;
   }
   
   
@@ -43,8 +51,3 @@ table {
   button:hover {
     background-color: #576ebf;
   }
-  h2{
-    text-align: center;
-    margin: 80px;
-}
-  
