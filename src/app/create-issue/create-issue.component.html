@@ -4,10 +4,26 @@
   <ng-container>
     <form action="post">
       <div class="mainDiv">
-        <input type="text" placeholder="Enter issue title" /><br />
-        <input type="text" placeholder="Description" /><br />
-        <input type="text" placeholder="Tags / Labels" /><br />
-        <select name="issuetype" id="issuetype">
+        <input
+          type="text"
+          placeholder="Enter issue title"
+          (input)="onNameChange($event)"
+        /><br />
+        <input
+          type="text"
+          placeholder="Description"
+          (input)="onDescChange($event)"
+        /><br />
+        <input
+          type="text"
+          placeholder="Tags / Labels"
+          (input)="onLabelChange($event)"
+        /><br />
+        <select
+          name="issuetype"
+          id="issuetype"
+          (change)="onIssuetypeChange($event)"
+        >
           <option value="">Select issuetype</option>
           <option
             *ngFor="let issuetype of allIssueTypes"
@@ -16,7 +32,11 @@
             {{ issuetype.issue }}
           </option></select
         ><br />
-        <select name="statustype" id="statustype">
+        <select
+          name="statustype"
+          id="statustype"
+          (change)="onStatusChange($event)"
+        >
           <option value="">Select statustype</option>
           <option
             *ngFor="let statustype of allStatusTypes"
@@ -25,14 +45,22 @@
             {{ statustype.status }}
           </option></select
         ><br />
-        <select name="priority" id="priority">
+        <select
+          name="priority"
+          id="priority"
+          (change)="onPriorityChange($event)"
+        >
           <option value="">Select priority</option>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
           <option value="4">4</option></select
         ><br />
-        <select name="severity" id="severity">
+        <select
+          name="severity"
+          id="severity"
+          (change)="onSeverityChange($event)"
+        >
           <option value="">Select severity</option>
           <option
             *ngFor="let severitytype of allSeverityTypes"
@@ -50,7 +78,11 @@
             {{ department }}
           </option></select
         ><br />
-        <select name="assignto" id="assignto">
+        <select
+          name="assignto"
+          id="assignto"
+          (change)="onAssigneChange($event)"
+        >
           <option value="">Select assignto</option>
           <option
             *ngFor="let user of UserUnderDeptArray"
@@ -59,7 +91,7 @@
             {{ user.name }}
           </option></select
         ><br />
-        <button class="sbtBtn sbtBtn-primary" type="submit">SUBMIT</button>
+        <button class="sbtBtn sbtBtn-primary" type="submit" (click)="onSubmitClick($event)">SUBMIT</button>
       </div>
     </form>
   </ng-container>
