@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-create-issue',
@@ -136,11 +136,6 @@ export class CreateIssueComponent implements OnInit {
       label: this.labelValue,
     }
 
-    const header = new HttpHeaders()
-      .set('Content-Type', 'application/json')
-      .set('Access-Control-Allow-Origin', '*')
-      .set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-
     if (issueData.Title === "") {
       console.log("Enter title")
     } else if (issueData.desc === "") {
@@ -159,7 +154,7 @@ export class CreateIssueComponent implements OnInit {
       console.log("Enter Assigne")
     } else {
       console.log("All entered")
-      this.http.post('http://localhost:4000/createissue', issueData, { headers: header, withCredentials: true }).subscribe((response: any) => {
+      this.http.post('http://localhost:4000/createissue', issueData).subscribe((response: any) => {
         console.log("Post response", response)
       })
     }
