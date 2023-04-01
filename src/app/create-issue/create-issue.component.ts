@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-create-issue',
@@ -13,6 +13,17 @@ export class CreateIssueComponent implements OnInit {
   allSeverityTypes: any;
   userDepartments: any;
   UserUnderDeptArray: any[] = [];
+
+  nameValue: string = "";
+  descValue: string = "";
+  labelValue: string = "";
+  issuetypeValue: number = 0;
+  statustypeValue: number = 0;
+  priorityValue: number = 0;
+  severityValue: number = 0;
+  assigneValue: number = 0;
+
+
 
   constructor(private http: HttpClient) { }
 
@@ -65,7 +76,92 @@ export class CreateIssueComponent implements OnInit {
           })
         }
       })
-      console.log("After", this.UserUnderDeptArray)
     });
+  }
+
+  onNameChange(event: Event) {
+    const target = event.target as HTMLSelectElement;
+    this.nameValue = target.value;
+  }
+
+  onDescChange(event: Event) {
+    const target = event.target as HTMLSelectElement;
+    this.descValue = target.value;
+  }
+
+  onLabelChange(event: Event) {
+    const target = event.target as HTMLSelectElement;
+    this.labelValue = target.value;
+  }
+
+  onIssuetypeChange(event: Event) {
+    const target = event.target as HTMLSelectElement;
+    const issuetype = target.value;
+    this.issuetypeValue = Number(issuetype)
+  }
+
+  onStatusChange(event: Event) {
+    const target = event.target as HTMLSelectElement;
+    const statustype = target.value;
+    this.statustypeValue = Number(statustype)
+  }
+
+  onPriorityChange(event: Event) {
+    const target = event.target as HTMLSelectElement;
+    const priority = target.value;
+    this.priorityValue = Number(priority)
+  }
+
+  onSeverityChange(event: Event) {
+    const target = event.target as HTMLSelectElement;
+    const severity = target.value;
+    this.severityValue = Number(severity)
+  }
+
+  onAssigneChange(event: Event) {
+    const target = event.target as HTMLSelectElement;
+    const assigne = target.value;
+    this.assigneValue = Number(assigne)
+  }
+
+  onSubmitClick(event: Event) {
+    const issueData: any = {
+      Title: this.nameValue,
+      desc: this.descValue,
+      empid: this.assigneValue,
+      issueid: this.issuetypeValue,
+      sid: this.statustypeValue,
+      severityid: this.severityValue,
+      priority: this.priorityValue,
+      label: this.labelValue,
+    }
+
+    const header = new HttpHeaders()
+      .set('Content-Type', 'application/json')
+      .set('Access-Control-Allow-Origin', '*')
+      .set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+
+    if (issueData.Title === "") {
+      console.log("Enter title")
+    } else if (issueData.desc === "") {
+      console.log("Enter DEsc")
+    } else if (issueData.label === "") {
+      console.log("Enter Label")
+    } else if (issueData.issueid == 0 || null || undefined) {
+      console.log("Enter Issue type")
+    } else if (issueData.sid == 0 || null || undefined) {
+      console.log("Enter Status type")
+    } else if (issueData.priority == 0 || null || undefined) {
+      console.log("Enter Prioruty")
+    } else if (issueData.severityid == 0 || null || undefined) {
+      console.log("Enter Severity")
+    } else if (issueData.empid == 0 || null || undefined) {
+      console.log("Enter Assigne")
+    } else {
+      console.log("All entered")
+      this.http.post('http://localhost:4000/createissue', issueData, { headers: header, withCredentials: true }).subscribe((response: any) => {
+        console.log("Post response", response)
+      })
+    }
   }
 }
