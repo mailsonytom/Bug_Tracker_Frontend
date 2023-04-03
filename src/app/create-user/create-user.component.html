@@ -2,9 +2,9 @@
   <h1 class="form-title">Create User</h1>
   
 
-  <label for="display-name">Name<span class="required-star">*</span>:</label><br>
-  <input type="text" id="display-name" formControlName="displayName"><br>
-  <div *ngIf="userForm.controls['displayName'].invalid && userForm.controls['displayName'].touched">
+  <label for="userName">Name<span class="required-star">*</span>:</label><br>
+  <input type="text" id="userName" formControlName="userName"><br>
+  <div *ngIf="userForm.controls['userName'].invalid && userForm.controls['userName'].touched">
     <span class="error-msg">Name is required.</span>
   </div>
 
@@ -16,9 +16,9 @@
     <span class="error-msg" *ngIf="userForm.controls['email'].errors?.['pattern']">Email should be in the format: example@domain.com</span>
   </div>
   
-  <label for="phone">Phone<span class="required-star">*</span>:</label><br>
-  <input type="text" id="phone" formControlName="phone"><br>
-  <div *ngIf="userForm.controls['phone'].invalid && userForm.controls['phone'].touched">
+  <label for="mobileNumber">Phone<span class="required-star">*</span>:</label><br>
+  <input type="text" id="mobileNumber" formControlName="mobileNumber"><br>
+  <div *ngIf="userForm.controls['mobileNumber'].invalid && userForm.controls['mobileNumber'].touched">
     <span class="error-msg">Phone is required and should be 10 digits.</span>
   </div>
 
@@ -40,9 +40,9 @@
       {{ department }}
     </option></select><br/>
 
-  <label for="is-active">Is Active:</label><br>
+  <!-- <label for="is-active">Is Active:</label><br>
   <input type="radio" id="is-active-yes" formControlName="isActive" value="true" checked>Yes
-  <input type="radio" id="is-active-no" formControlName="isActive" value="false">No<br>
+  <input type="radio" id="is-active-no" formControlName="isActive" value="false">No<br> -->
 
   <button type="submit">Save and Close</button>
   <button type="button" (click)="onCancel()">Cancel</button>

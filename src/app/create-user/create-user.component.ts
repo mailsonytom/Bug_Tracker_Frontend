@@ -13,11 +13,11 @@ export class CreateUserComponent {
   UserUnderDeptArray: any[] = [];
 
   userForm = new FormGroup({
-    displayName: new FormControl('', [Validators.required]),
+    userName: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.maxLength(40), Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)]),
-    phone: new FormControl('', [Validators.required, Validators.pattern(/^\d{10}$/)]),
-    role: new FormControl('Admin'),
-    isActive: new FormControl(true),
+    mobileNumber: new FormControl('', [Validators.required, Validators.pattern(/^\d{10}$/)]),
+    role: new FormControl('Development'),
+    
     gender: new FormControl('', [Validators.required])
   });
   ngOnInit(): void {
@@ -50,9 +50,19 @@ export class CreateUserComponent {
 
   onSubmit() {
     if (this.userForm.valid) {
+      
       const formData = this.userForm.value;
-      console.log(formData); // TODO: Replace with actual code to send data to server
-      alert('User created successfully!');
+      console.log(formData);
+      this.http.post('http://localhost:4000/user', formData).subscribe({
+  next: (response:any) => {
+    console.log(response); // Handle success response
+    alert('User created successfully!');
+  },
+  error: (error) => {
+    console.log(error.message); // Handle error response
+  }
+});
+
     } else {
       this.userForm.markAllAsTouched();
     }
