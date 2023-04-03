@@ -25,7 +25,7 @@
   <label for="gender">Gender<span class="required-star">*</span>:</label><br>
   <input type="radio" id="gender-male" formControlName="gender" value="male">Male
   <input type="radio" id="gender-female" formControlName="gender" value="female">Female
-  <input type="radio" id="gender-others" formControlName="gender" value="others">Others<br>
+  <input type="radio" id="gender-others" formControlName="gender" value="other">Others<br>
   <div *ngIf="userForm.controls['gender'].invalid && userForm.controls['gender'].touched">
     <span class="error-msg">Gender is required.</span>
   </div><br>
@@ -39,10 +39,10 @@
       value="{{ department }}">
       {{ department }}
     </option></select><br/>
-
-  <!-- <label for="is-active">Is Active:</label><br>
-  <input type="radio" id="is-active-yes" formControlName="isActive" value="true" checked>Yes
-  <input type="radio" id="is-active-no" formControlName="isActive" value="false">No<br> -->
+ 
+ <label for="isactive">Is Active:</label><br>
+  <input type="radio" id="isactive" formControlName="isactive" value="Yes" checked>Yes
+  <input type="radio" id="isactive" formControlName="isactive" value="No">No<br> 
 
   <button type="submit">Save and Close</button>
   <button type="button" (click)="onCancel()">Cancel</button>

@@ -16,25 +16,14 @@ export class CreateUserComponent {
     userName: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.maxLength(40), Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)]),
     mobileNumber: new FormControl('', [Validators.required, Validators.pattern(/^\d{10}$/)]),
-    role: new FormControl('Development'),
-    
-    gender: new FormControl('', [Validators.required])
+    role: new FormControl('Development', [Validators.required]),
+    gender: new FormControl('', [Validators.required]),
+    isactive:new FormControl('', [Validators.required])
   });
   ngOnInit(): void {
-
-    this.getUsersForDept();
+     this.getUsersForDept();
   }
 
-
-  // public getUsersForDept() {
-  //   this.http.get('http://localhost:4000/user').subscribe((response: any) => {
-  //     let DeptArray: any[] = [];
-  //     response.users.map((resObj: any) => {
-  //       DeptArray.push(resObj.role)
-  //     })
-  //     this.userDepartments = Array.from(new Set(DeptArray));
-  //   });
-  // }
   public getUsersForDept() {
     this.http.get('http://localhost:4000/user').subscribe((response: any) => {
       let DeptArray: any[] = [];
@@ -50,19 +39,12 @@ export class CreateUserComponent {
 
   onSubmit() {
     if (this.userForm.valid) {
-      
       const formData = this.userForm.value;
-      console.log(formData);
-      this.http.post('http://localhost:4000/user', formData).subscribe({
-  next: (response:any) => {
-    console.log(response); // Handle success response
-    alert('User created successfully!');
-  },
-  error: (error) => {
-    console.log(error.message); // Handle error response
-  }
-});
-
+      console.log(formData); // TODO: Replace with actual code to send data to server
+      this.http.post('http://localhost:4000/user', formData).subscribe((response: any) => {
+        console.log("Post response", response)
+        alert('User created successfully!');
+      })
     } else {
       this.userForm.markAllAsTouched();
     }
