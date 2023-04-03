@@ -17,6 +17,12 @@ input{
     margin-top: 10px;
 }
 
+textarea{
+    width: 400px;
+    margin-top: 10px;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
 select{
     width: 410px;
     height: 35px;
