@@ -10,7 +10,7 @@
         <th>Secondary Owner</th>
         <th>Is Active</th>
         <th>Description</th>
-        <th>Action</th>
+        <!-- <th>Action</th> -->
       </tr>
     </thead>
     <tbody>
@@ -21,8 +21,8 @@
         <td>{{ project.secondaryOwner }}</td>
         <td>{{ project.isActive ? 'Yes' : 'No' }}</td>
         <td>{{ project.description }}</td>
-        <td><button (click)="editProject(project)">Edit</button>
-            <button (click)="deleteProject(project)">Delete</button></td>
+        <!-- <td><button (click)="editProject(project)">Edit</button>
+            <button (click)="deleteProject(project)">Delete</button></td> -->
       </tr>
     </tbody>
   </table>

@@ -22,12 +22,12 @@ export class ViewUsersComponent implements OnInit {
   }
 
   // Add edit and delete functions
-  editUser(user: any) {
-    console.log('Edit user:', user);
-  }
+  // editUser(user: any) {
+  //   console.log('Edit user:', user);
+  // }
 
-  deleteUser(user: any) {
-    console.log('Delete user:', user);
-  }
+  // deleteUser(user: any) {
+  //   console.log('Delete user:', user);
+  // }
 
 }

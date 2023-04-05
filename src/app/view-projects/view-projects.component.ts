@@ -8,14 +8,14 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ViewProjectsComponent implements OnInit {
 
-  // Add edit and delete functions
-  editProject(project: any) {
-    console.log('Edit project:', project);
-  }
+  // // Add edit and delete functions
+  // editProject(project: any) {
+  //   console.log('Edit project:', project);
+  // }
 
-  deleteProject(project: any) {
-    console.log('Delete project:', project);
-  }
+  // deleteProject(project: any) {
+  //   console.log('Delete project:', project);
+  // }
 
   allProjects: any;
 
