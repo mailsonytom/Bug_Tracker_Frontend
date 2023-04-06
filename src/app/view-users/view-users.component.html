@@ -9,8 +9,10 @@
         <th>Phone</th>
         <th>Gender</th>
         <th>Role</th>
+        <!-- <th>Action</th> -->
         <th>Is-active</th>
-        <th>Action</th>
+       
+
       </tr>
     </thead>
     <tbody>
@@ -22,12 +24,17 @@
         <td>{{ user.mobileNumber }}</td>
         <td>{{ user.gender }}</td>
         <td>{{ user.role }}</td>
+
+        <!-- <td>
+           Add edit and delete buttons with click handlers 
+
         <td>{{ user.isactive }}</td>
         <td>
           <!-- Add edit and delete buttons with click handlers -->
+
           <button (click)="editUser(user)">Edit</button>
           <button (click)="deleteUser(user)">Delete</button>
-        </td>
+        </td> -->
       </tr>
     </tbody>
   </table>

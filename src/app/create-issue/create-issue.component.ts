@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./create-issue.component.css']
 })
 export class CreateIssueComponent implements OnInit {
-
+  projects:any;
   allIssueTypes: any;
   allStatusTypes: any;
   allSeverityTypes: any;
@@ -22,17 +22,25 @@ export class CreateIssueComponent implements OnInit {
   priorityValue: number = 0;
   severityValue: number = 0;
   assigneValue: number = 0;
-
+  projecttypeValue:number=0;
 
 
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
+    this.getproject()
     this.getAllIssueTypes()
     this.getAllStatusTypes()
     this.getAllSeverityTypes()
     this.getUsersForDept()
   }
+
+  public getproject() {
+    this.http.get('http://localhost:4000/allissues').subscribe((data) => {
+      this.projects = data;
+    });
+  }
+
 
   public getAllIssueTypes() {
     this.http.get('http://localhost:4000/allissues').subscribe((data) => {
@@ -94,6 +102,11 @@ export class CreateIssueComponent implements OnInit {
     this.labelValue = target.value;
   }
 
+onprojectChange(event:Event){
+  const target=event.target as HTMLSelectElement;
+  const projectlist = target.value;
+  this.projecttypeValue = Number(projectlist);
+}
   onIssuetypeChange(event: Event) {
     const target = event.target as HTMLSelectElement;
     const issuetype = target.value;
