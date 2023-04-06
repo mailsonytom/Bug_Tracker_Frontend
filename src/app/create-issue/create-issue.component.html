@@ -6,17 +6,21 @@
       <div class="mainDiv">
         <input
           type="text"
-          placeholder="Enter issue title"
+          placeholder="Add issue title"
           (input)="onNameChange($event)"
         /><br />
-        <input
-          type="text"
-          placeholder="Description"
+        <textarea
+          id="desc"
+          name="desc"
+          rows="5"
+          cols="30"
           (input)="onDescChange($event)"
-        /><br />
+          placeholder="Add Description"
+        ></textarea>
+        <br />
         <input
           type="text"
-          placeholder="Tags / Labels"
+          placeholder="Add Tags / Labels"
           (input)="onLabelChange($event)"
         /><br />
         <select
@@ -103,7 +107,13 @@
             {{ user.name }}
           </option></select
         ><br />
-        <button class="sbtBtn sbtBtn-primary" type="submit" (click)="onSubmitClick($event)">SUBMIT</button>
+        <button
+          class="sbtBtn sbtBtn-primary"
+          type="submit"
+          (click)="onSubmitClick($event)"
+        >
+          SUBMIT
+        </button>
       </div>
     </form>
   </ng-container>

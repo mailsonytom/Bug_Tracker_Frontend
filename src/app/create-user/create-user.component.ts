@@ -16,6 +16,7 @@ export class CreateUserComponent {
     userName: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.maxLength(40), Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)]),
     mobileNumber: new FormControl('', [Validators.required, Validators.pattern(/^\d{10}$/)]),
+
     role: new FormControl('Development', [Validators.required]),
     gender: new FormControl('', [Validators.required]),
     isactive:new FormControl('', [Validators.required])

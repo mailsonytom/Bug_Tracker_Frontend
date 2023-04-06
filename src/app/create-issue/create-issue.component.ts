@@ -140,7 +140,7 @@ onprojectChange(event:Event){
   onSubmitClick(event: Event) {
     const issueData: any = {
       Title: this.nameValue,
-      desc: this.descValue,
+      description: this.descValue,
       empid: this.assigneValue,
       issueid: this.issuetypeValue,
       sid: this.statustypeValue,
@@ -150,25 +150,25 @@ onprojectChange(event:Event){
     }
 
     if (issueData.Title === "") {
-      console.log("Enter title")
-    } else if (issueData.desc === "") {
-      console.log("Enter DEsc")
+      alert("Enter title");
+    } else if (issueData.description === "") {
+      alert("Enter Description");
     } else if (issueData.label === "") {
-      console.log("Enter Label")
+      alert("Enter Label");
     } else if (issueData.issueid == 0 || null || undefined) {
-      console.log("Enter Issue type")
+      alert("Enter Issue type");
     } else if (issueData.sid == 0 || null || undefined) {
-      console.log("Enter Status type")
+      alert("Enter Status type");
     } else if (issueData.priority == 0 || null || undefined) {
-      console.log("Enter Prioruty")
+      alert("Enter Priority");
     } else if (issueData.severityid == 0 || null || undefined) {
-      console.log("Enter Severity")
+      alert("Enter Severity");
     } else if (issueData.empid == 0 || null || undefined) {
-      console.log("Enter Assigne")
+      alert("Enter Assigne");
     } else {
-      console.log("All entered")
       this.http.post('http://localhost:4000/createissue', issueData).subscribe((response: any) => {
         console.log("Post response", response)
+        alert('Issue created successfully!');
       })
     }
   }
