@@ -20,18 +20,30 @@
           (input)="onLabelChange($event)"
         /><br />
         <select
-          name="issuetype"
-          id="issuetype"
-          (change)="onIssuetypeChange($event)"
+          name="projectlist"
+          id="projectlist"
+          (change)="onprojectChange($event)"
         >
+        <option value="">Select project</option>
+          <option
+            *ngFor="let projectlist of projects"
+            value="{{ projectlist.id }}"
+          >
+            {{ projectlist.name }}
+          </option></select
+        ><br />
+        <select
+        name="issuetype"
+        id="issuetype"
+        (change)="onIssuetypeChange($event)"
+      >
           <option value="">Select issuetype</option>
           <option
             *ngFor="let issuetype of allIssueTypes"
             value="{{ issuetype.issueid }}"
           >
             {{ issuetype.issue }}
-          </option></select
-        ><br />
+          </option></select><br />
         <select
           name="statustype"
           id="statustype"
