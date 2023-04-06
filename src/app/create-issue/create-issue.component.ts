@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./create-issue.component.css']
 })
 export class CreateIssueComponent implements OnInit {
-  projects:any;
+  projects: any;
   allIssueTypes: any;
   allStatusTypes: any;
   allSeverityTypes: any;
@@ -22,7 +22,7 @@ export class CreateIssueComponent implements OnInit {
   priorityValue: number = 0;
   severityValue: number = 0;
   assigneValue: number = 0;
-  projecttypeValue:number=0;
+  projecttypeValue: number = 0;
 
 
   constructor(private http: HttpClient) { }
@@ -36,7 +36,7 @@ export class CreateIssueComponent implements OnInit {
   }
 
   public getproject() {
-    this.http.get('http://localhost:4000/allissues').subscribe((data) => {
+    this.http.get('http://localhost:4000/project').subscribe((data) => {
       this.projects = data;
     });
   }
@@ -102,11 +102,11 @@ export class CreateIssueComponent implements OnInit {
     this.labelValue = target.value;
   }
 
-onprojectChange(event:Event){
-  const target=event.target as HTMLSelectElement;
-  const projectlist = target.value;
-  this.projecttypeValue = Number(projectlist);
-}
+  onprojectChange(event: Event) {
+    const target = event.target as HTMLSelectElement;
+    const projectlist = target.value;
+    this.projecttypeValue = Number(projectlist);
+  }
   onIssuetypeChange(event: Event) {
     const target = event.target as HTMLSelectElement;
     const issuetype = target.value;
@@ -146,6 +146,7 @@ onprojectChange(event:Event){
       sid: this.statustypeValue,
       severityid: this.severityValue,
       priority: this.priorityValue,
+      projectid: this.projecttypeValue,
       label: this.labelValue,
     }
 
@@ -163,6 +164,8 @@ onprojectChange(event:Event){
       alert("Enter Priority");
     } else if (issueData.severityid == 0 || null || undefined) {
       alert("Enter Severity");
+    } else if (issueData.projectid == 0 || null || undefined) {
+      alert("Enter Project");
     } else if (issueData.empid == 0 || null || undefined) {
       alert("Enter Assigne");
     } else {
