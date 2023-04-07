@@ -48,3 +48,32 @@ select{
     border-color: #0062cc;
     color: #fff;
   }
+  /* label {
+    display: inline-block;
+    width: 120px;
+    text-align: left;
+    margin-right: 10px;
+  } */
+  label {
+    margin-top: 5px;
+    display: block;
+    /* margin-bottom: 5px; */
+    font-weight: bold;
+    margin-bottom: 0%;
+    text-align: left;
+    /* margin-left: 430px; */
+  }
+  form {
+    border: 2px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(153, 189, 221, 0.8);
+    margin: 0 auto;
+    width: 500px;
+  }
+  .mainDiv{
+    text-align: left;
+}
+  
+  
+  
