@@ -28,7 +28,6 @@
 
   <input type="radio" id="gender-others" formControlName="gender" value="other">Others<br>
 
-<input type="radio" id="gender-others" formControlName="gender" value="others">Others<br> -->
 
   <div *ngIf="userForm.controls['gender'].invalid && userForm.controls['gender'].touched">
     <span class="error-msg">Gender is required.</span>
@@ -45,7 +44,7 @@
     </option></select><br/>
 
  
- <label for="isactive">Is Active:</label><br>
+ <label for="isactive">Is Active<span class="required-star">*</span>:</label><br>
   <input type="radio" id="isactive" formControlName="isactive" value="Yes" checked>Yes
   <input type="radio" id="isactive" formControlName="isactive" value="No">No<br> 
 
