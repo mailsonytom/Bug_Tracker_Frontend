@@ -1,14 +1,19 @@
 <div class="container">
-  <h2>CREATE AN ISSUE</h2>
+  
 
   <ng-container>
     <form action="post">
       <div class="mainDiv">
+        <h2>CREATE AN ISSUE</h2>
+          <label for="title">Issue Title:</label>
+         
         <input
           type="text"
           placeholder="Add issue title"
           (input)="onNameChange($event)"
         /><br />
+        <label for="desc">Description:</label>
+        
         <textarea
           id="desc"
           name="desc"
@@ -18,11 +23,15 @@
           placeholder="Add Description"
         ></textarea>
         <br />
+        <label for="tags">Tags / Labels:</label>
+        
         <input
           type="text"
           placeholder="Add Tags / Labels"
           (input)="onLabelChange($event)"
         /><br />
+        <label for="projectlist">Select Project:</label>
+        
         <select
           name="projectlist"
           id="projectlist"
@@ -36,6 +45,7 @@
             {{ projectlist.name }}
           </option></select
         ><br />
+        <label for="issuetype">Select Issue Type:</label>
         <select
         name="issuetype"
         id="issuetype"
@@ -48,6 +58,7 @@
           >
             {{ issuetype.issue }}
           </option></select><br />
+          <label for="status">Select statustype:</label>
         <select
           name="statustype"
           id="statustype"
@@ -61,6 +72,7 @@
             {{ statustype.status }}
           </option></select
         ><br />
+        <label for="priority">Select Priority:</label>
         <select
           name="priority"
           id="priority"
@@ -72,6 +84,7 @@
           <option value="3">3</option>
           <option value="4">4</option></select
         ><br />
+        <label for="severity">Select Severity:</label>
         <select
           name="severity"
           id="severity"
@@ -85,6 +98,7 @@
             {{ severitytype.severity }}
           </option></select
         ><br />
+        <label for="dept">Select Department:</label>
         <select name="dept" id="dept" (change)="onSelectDept($event)">
           <option value="">Select department</option>
           <option
@@ -94,11 +108,13 @@
             {{ department }}
           </option></select
         ><br />
+        <label for="assignto">Select assignto:</label>
         <select
           name="assignto"
           id="assignto"
           (change)="onAssigneChange($event)"
         >
+        
           <option value="">Select assignto</option>
           <option
             *ngFor="let user of UserUnderDeptArray"

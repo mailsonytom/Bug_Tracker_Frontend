@@ -1,10 +1,10 @@
 <form [formGroup]="projectForm" (ngSubmit)="onSubmit()" novalidate>
     <h1 class="form-title">Create Project</h1>
-  <label for="project-id">ID<span class="required-star">*</span>:</label><br>
+  <!-- <label for="project-id">ID<span class="required-star">*</span>:</label><br>
   <input type="text" id="project-id" formControlName="id"><br>
   <div *ngIf="projectForm.controls['id'].invalid && projectForm.controls['id'].touched">
     <span class="error-msg">ID is required.</span>
-  </div>
+  </div> -->
 
   <label for="project-name">Project Title<span class="required-star">*</span>:</label><br>
   <input type="text" id="project-name" formControlName="name"><br>

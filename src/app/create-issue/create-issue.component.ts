@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-issue',
@@ -25,7 +26,7 @@ export class CreateIssueComponent implements OnInit {
   projecttypeValue: number = 0;
 
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private router: Router) { }
 
   ngOnInit(): void {
     this.getproject()
@@ -171,8 +172,15 @@ export class CreateIssueComponent implements OnInit {
     } else {
       this.http.post('http://localhost:4000/createissue', issueData).subscribe((response: any) => {
         console.log("Post response", response)
-        alert('Issue created successfully!');
-      })
-    }
+        const confirmRedirect = confirm('Issue created successfully! Do you want to view the issue?');
+      if (confirmRedirect) {
+        this.router.navigate(['/issues']); // Redirect to view-issue page with the issue ID
+      } else {
+        this.router.navigate(['/home']); // Redirect to home page
+      }
+    }, (error) => {
+      console.log(error); // Handle error response
+    })
   }
+}
 }
