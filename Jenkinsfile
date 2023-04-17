@@ -15,6 +15,16 @@ pipeline {
                 bat 'start npm start'
             }
         }
+        stage('Build') {
+      steps {
+        sh 'npm run build'
+      }
+    }
+    stage('Test') {
+        steps {
+        sh 'npm run test'
+      }
+    }
     }
 
 }
