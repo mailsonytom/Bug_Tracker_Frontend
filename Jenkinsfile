@@ -1,8 +1,8 @@
 pipeline {
     agent any
-     environment {
-            CI = 'true'
-        }
+    environment {
+        CI = 'true'
+    }
     stages {
         stage('Build') {
             steps {
@@ -10,18 +10,16 @@ pipeline {
             }
         }
         stage('Test') {
-                    steps {
-                        sh './jenkins/scripts/test.sh'
-                    }
-                }
-                stage('Deliver') {
-                            steps {
-                                sh './jenkins/scripts/deliver.sh'
-                                input message: 'Finished using the web site? (Click "Proceed" to continue)'
-                                sh './jenkins/scripts/kill.sh'
-                            }
-                        }
+            steps {
+                bat './jenkins/scripts/test.bat'
+            }
+        }
+        stage('Deliver') {
+            steps {
+                bat 'start cmd /c call "./jenkins/scripts/deliver.bat"'
+                input message: 'Finished using the web site? (Click "Proceed" to continue)'
+                bat './jenkins/scripts/kill.bat'
+            }
+        }
     }
-
 }
-
