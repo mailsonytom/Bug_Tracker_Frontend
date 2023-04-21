@@ -46,7 +46,7 @@ export class CreateUserComponent {
       console.log(formData); // TODO: Replace with actual code to send data to server
       this.http.post('http://localhost:4000/user', formData).subscribe((response: any) => {
         console.log("Post response", response);
-        const confirmRedirect = confirm('User created successfully!\nDo you want to redirect to the view user page?\nClick no if you want to redirect to home page');
+        const confirmRedirect = confirm('User created successfully!\nDo you want to redirect to the view user page?\nClick cancel if you want to redirect to home page');
         if (confirmRedirect) {
           // Redirect to view user page
           // Assuming the view user component is named ViewUserComponent
