@@ -12,13 +12,9 @@ pipeline {
         stage('Test') {
             steps {
                 timeout(time: 10, unit: 'MINUTES') {
-                    try {
-                        steps {
-                            bat 'npm test'
-                        }
+                    catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                        bat 'npm test'
                         echo "Tests passed"
-                    } catch (error) {
-                        echo "Tests failed, but continuing to Deliver stage"
                     }
                 }
             }
@@ -26,16 +22,12 @@ pipeline {
         stage('Deliver') {
             steps {
                 timeout(time: 5, unit: 'MINUTES') {
-                    try {
-                        steps {
-                            bat 'npm run build'
-                            bat 'npm start'
-                            input message: 'Finished using the web site? (Click "Proceed" to continue)'
-                            bat 'taskkill /IM node.exe /F'
-                        }
+                    catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {
+                        bat 'npm run build'
+                        bat 'npm start'
+                        input message: 'Finished using the web site? (Click "Proceed" to continue)'
+                        bat 'taskkill /IM node.exe /F'
                         echo "Deliver stage completed successfully"
-                    } catch (error) {
-                        echo "Deliver failed due to error: ${error}"
                     }
                 }
             }
