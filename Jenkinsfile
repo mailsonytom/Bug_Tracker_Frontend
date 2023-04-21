@@ -16,9 +16,6 @@ pipeline {
                 }
             }
         }
-        stage('Deliver') {
-            steps {
-            }
-        }
+        
     }
 }
