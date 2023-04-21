@@ -11,11 +11,20 @@ pipeline {
         }
         stage('Test') {
             steps {
-                timeout(time: 10, unit: 'MINUTES') {
+                timeout(time: 5, unit: 'MINUTES') {
                     bat 'npm test'
                 }
             }
         }
-        
+        stage('Deliver') {
+            steps {
+                timeout(time: 5, unit: 'MINUTES') {
+                    bat 'npm run build'
+                    bat 'npm start'
+                    input message: 'Finished using the web site? (Click "Proceed" to continue)'
+                    bat 'taskkill /IM node.exe /F'
+                }
+            }
+        }
     }
 }
