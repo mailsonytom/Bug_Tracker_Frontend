@@ -15,7 +15,7 @@ pipeline {
                     try {
                         bat 'npm test'
                     } catch (error) {
-                        echo "Tests failed, but continuing to Deliver stage"
+                        echo "test failed, but continuing to Deliver stage"
                     }
                 }
             }
