@@ -11,10 +11,13 @@ pipeline {
         }
         stage('Test') {
             steps {
-                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    timeout(time: 6, unit: 'MINUTES') {
-                        bat 'npm test'
-                    }
+                timeout(time: 6, unit: 'MINUTES') {
+                    bat 'npm test'
+                }
+            }
+            post {
+                always {
+                    echo 'Test stage completed'
                 }
             }
         }
