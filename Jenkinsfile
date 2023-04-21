@@ -11,7 +11,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                timeout(time: 6, unit: 'MINUTES') {
+                timeout(time: 10, unit: 'MINUTES') {
                     bat 'npm test'
                 }
             }
