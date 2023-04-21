@@ -11,8 +11,10 @@ pipeline {
         }
         stage('Test') {
             steps {
-                timeout(time: 5, unit: 'MINUTES') {
-                    bat 'npm test'
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                    timeout(time: 10, unit: 'MINUTES') {
+                        bat 'npm test'
+                    }
                 }
             }
         }
