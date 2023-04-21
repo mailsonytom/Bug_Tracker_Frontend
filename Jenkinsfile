@@ -12,7 +12,7 @@ pipeline {
         stage('Test') {
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    timeout(time: 10, unit: 'MINUTES') {
+                    timeout(time: 6, unit: 'MINUTES') {
                         bat 'npm test'
                     }
                 }
