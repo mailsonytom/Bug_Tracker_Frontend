@@ -11,14 +11,13 @@ pipeline {
         }
         stage('Test') {
             steps {
-                bat './jenkins/scripts/test.bat'
+                timeout(time: 10, unit: 'MINUTES') {
+                    bat 'npm test'
+                }
             }
         }
         stage('Deliver') {
             steps {
-                bat 'start cmd /c call "./jenkins/scripts/deliver.bat"'
-                input message: 'Finished using the web site? (Click "Proceed" to continue)'
-                bat './jenkins/scripts/kill.bat'
             }
         }
     }
