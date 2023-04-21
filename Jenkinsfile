@@ -1,30 +1,27 @@
 pipeline {
     agent any
     
+     environment {
+            CI = 'true'
+        }
     stages {
-        stage('Install dependencies') {
+        stage('Build') {
             steps {
                 bat 'npm install'
-               
             }
         }
-        
-        
-        stage('Start server') {
-            steps {
-                bat 'start npm start'
-            }
-        }
-        stage('Build') {
-      steps {
-        bat 'npm run build'
-      }
-    }
-    stage('Test') {
-        steps {
-        bat 'npm run test'
-      }
-    }
+        stage('Test') {
+                    steps {
+                        bat './jenkins/scripts/test.sh'
+                    }
+                }
+                stage('Deliver') {
+                            steps {
+                                bat './jenkins/scripts/deliver.sh'
+                                input message: 'Finished using the web site? (Click "Proceed" to continue)'
+                                bat './jenkins/scripts/kill.sh'
+                            }
+                        }
     }
 
 }
