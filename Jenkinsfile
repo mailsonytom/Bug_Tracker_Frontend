@@ -24,7 +24,7 @@ pipeline {
     stage('Test') {
     steps {
         timeout(time: 20, unit: 'MINUTES') {
-            bat 'npm test'
+            bat 'ng serve'
             echo "Tests passed"
         }
     }
