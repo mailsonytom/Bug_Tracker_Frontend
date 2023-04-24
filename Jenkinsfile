@@ -16,12 +16,7 @@ pipeline {
                 bat 'start npm start'
             }
         }
-        stage('Build') {
-      steps {
-        bat 'npm run build'
-          echo "Deliver completed"
-      }
-    }
+    
   
 
     }
