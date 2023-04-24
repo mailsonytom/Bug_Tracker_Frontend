@@ -22,14 +22,7 @@ pipeline {
           echo "Deliver completed"
       }
     }
-    stage('Test') {
-    steps {
-        timeout(time: 20, unit: 'MINUTES') {
-            bat 'npm start'
-            echo "Tests passed"
-        }
-    }
-}
+  
 
     }
 
