@@ -11,11 +11,7 @@ pipeline {
         }
         
         
-        stage('Start server') {
-            steps {
-                bat 'npm start'
-            }
-        }
+       
         
         stage('Build') {
            steps {
@@ -23,7 +19,11 @@ pipeline {
                echo "Deliver completed"
       }
     }
-        
+       stage('Start server') {
+            steps {
+                bat 'npm start'
+            }
+        }  
   
 
     }
