@@ -18,7 +18,7 @@ pipeline {
     steps {
      script {
       try {
-        timeout(time: 10, unit: 'MINUTES') {
+        timeout(time: 20, unit: 'MINUTES') {
           bat 'npm start'
         }
       } catch (err) {
