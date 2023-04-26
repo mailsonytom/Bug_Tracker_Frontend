@@ -5,25 +5,30 @@ pipeline {
         stage('Install dependencies') {
             steps {
                 bat 'npm install'
-   
-
             }
         }
-        
-        
-       
-        
-        stage('Build') {
+     stage('Build') {
            steps {
                bat 'npm run build'
                echo "Deliver completed"
+           }
+    }
+      
+  stage('Start server') {
+    steps {
+     script {
+      try {
+        timeout(time: 10, unit: 'MINUTES') {
+          bat 'npm start'
+        }
+      } catch (err) {
+        currentBuild.result = 'FAILURE'
+        error("An error occurred while starting the server: ${err}")
       }
     }
-       stage('Start server') {
-            steps {
-                bat 'npm start'
-            }
-        }  
+  }
+}
+
   
 
     }
