@@ -20,6 +20,7 @@ pipeline {
             }
         }
      }
+    }     
       
   post {
         always {
@@ -28,6 +29,6 @@ pipeline {
             to: 'shettynidhu111@gmail.com'
         }
     }
-}
+
 
 }
