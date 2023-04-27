@@ -13,24 +13,21 @@ pipeline {
                echo "Deliver completed"
            }
     }
-      
-  stage('Start server') {
-    steps {
-     script {
-      try {
-        timeout(time: 20, unit: 'MINUTES') {
-          bat 'npm start'
+        stage('Start server') {
+            steps {
+                timeout(time: 20, unit: 'MINUTES') {
+                bat 'npm start'
+            }
         }
-      } catch (err) {
-        currentBuild.result = 'FAILURE'
-        error("An error occurred while starting the server: ${err}")
-      }
+     }
+      
+  post {
+        always {
+            emailext body: 'Jenkins job has completed.',
+            subject: 'Jenkins job completed',
+            to: 'shettynidhu111@gmail.com'
+        }
     }
-  }
 }
-
-  
-
-    }
 
 }
