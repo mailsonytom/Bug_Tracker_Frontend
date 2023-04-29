@@ -15,7 +15,7 @@ pipeline {
     }
         stage('Start server') {
             steps {
-                timeout(time: 5, unit: 'MINUTES') {
+                timeout(time: 15, unit: 'MINUTES') {
                 bat 'npm start'
             }
         }
