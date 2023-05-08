@@ -18,7 +18,7 @@ pipeline {
                 script {
                     def serverProcess = bat(script: 'start /B cmd /C "npm start"', returnStdout: true)
                     echo "Server URL: http://localhost:4200"
-                    input(message: "Click 'Proceed' to open the server URL in a new tab", ok: "Proceed")
+                    input(message: "Click 'Proceed' to stop the server", ok: "Proceed")
                 }
             }
         }
