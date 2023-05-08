@@ -27,7 +27,7 @@ pipeline {
         stage('Stop server') {
             steps {
                 script {
-                    bat 'taskkill /F /PID <SERVER_PID>'
+                    bat 'taskkill /F /IM node.exe'
                     echo "Server stopped"
                     sleep time: 5 * 60, unit: 'SECONDS' // Server runs for 5 minutes before stopping
                 }
