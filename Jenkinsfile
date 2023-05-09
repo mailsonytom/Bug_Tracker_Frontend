@@ -16,7 +16,7 @@ pipeline {
         stage('Start server') {
             steps {
                 script {
-                    def serverProcess = bat(script: 'start /B cmd /C "npm start"', returnStdout: true)
+                    bat 'start /B cmd /C "npm start"'
                     echo "Server URL: http://localhost:4200"
                     input(message: "Click 'Proceed' to stop the server", ok: "Proceed")
                 }
