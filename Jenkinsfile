@@ -26,7 +26,7 @@ pipeline {
         stage('Stop server') {
             steps {
                 script {
-                    bat 'taskkill /F /IM node.exe'
+                   bat 'wmic process where "name=\'node.exe\'" delete'
                     echo "Server stopped"
                     sleep time: 1 * 60, unit: 'SECONDS' // Server runs for 5 minutes before stopping
                 }
