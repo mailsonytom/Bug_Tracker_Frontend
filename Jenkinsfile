@@ -40,11 +40,11 @@ pipeline {
                 if (currentBuild.result == 'SUCCESS') {
                     emailext body: 'Jenkins job has completed successfully.',
                             subject: 'Jenkins job succeeded',
-                            to: 'johncena1997788@gmail.com'
+                            to: 'addamail@gmail.com'
                 } else {
                     emailext body: 'Jenkins job has failed.',
                             subject: 'Jenkins job failed',
-                            to: 'johncena1997788@gmail.com'
+                            to: 'addamail@gmail.com'
                 }
             }
         }
